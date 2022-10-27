@@ -15,6 +15,8 @@
   --global-html-color: var(--global-color-front);
   --global-html-backgroundColor: var(--global-color-back);
   --global-selection-backgroundColor: var(--global-color-front);
+
+  --global-shadow-backgroundColor: #00000020;
 }
 
 /*------------------------------------*\
@@ -47,6 +49,7 @@ html {
 body {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -149,10 +152,10 @@ body {
 }
 
 .c-robot__shadow {
-  fill: #00000052;
+  fill: var(--global-shadow-backgroundColor)
 }
 
-#Shadow{
+.c-robot--css-anim #Shadow{
   animation-name: shadowPulse;
   animation-duration: var(--c-robot-animation-duration);
   animation-timing-function: var(--c-robot-animation-timing-function);
@@ -161,7 +164,7 @@ body {
   transform-origin: 50% 100%;
 }
 
-#Robot{
+.c-robot--css-anim #Robot{
   animation-name: robotHover;
   animation-duration: var(--c-robot-animation-duration);
   animation-timing-function: var(--c-robot-animation-timing-function);
@@ -173,6 +176,54 @@ body {
     Component: Controls
 */
 
+.c-controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-controls__button--pause{
+  margin: 10px;
+  background-color: var(--global-shadow-backgroundColor);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.c-play-icon{
+  position: absolute;
+  width: 3%;
+  height: auto;
+}
+
+.is-paused{
+  display: none;
+}
+
+.c-controls__list{
+  display: flex;
+  align-items: center;
+}
+
+
+.c-controls__radio{
+  display: none;
+}
+
+.c-controls__button{
+  padding: 10px;
+}
+
+.c-controls__radio:checked+.c-controls__button{
+  background-color: var(--global-shadow-backgroundColor);
+  border-radius: 25px;
+}
+
+.c-controls__list{
+  margin: 30px;
+}
 
 /*------------------------------------*\
 #UTILITIES
