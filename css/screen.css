@@ -34,6 +34,8 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-html-backgroundColor);
+  color: var(--global-html-color);
 }
 
 *,
@@ -43,6 +45,10 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*
@@ -133,19 +139,65 @@ body {
 */
 
 .c-robot {
+  fill: var(--global-color-front);
+  max-width: 300px;
+
+  --c-robot-animation-duration: 0.75s;
+  --c-robot-animation-timing-function: ease-in-out;
+  --c-robot-animation-iteration-count: infinite;
+  --c-robot-animation-direction: alternate;
 }
 
 .c-robot__shadow {
+  fill: #00000052;
 }
 
+#Shadow{
+  animation-name: shadowPulse;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+  transform-origin: 50% 100%;
+}
+
+#Robot{
+  animation-name: robotHover;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+}
 
 /*
     Component: Controls
 */
 
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
+
+/*------------------------------------*\
+#KEYFRAMES
+\*------------------------------------*/
+
+@keyframes shadowPulse {
+  100%{
+    transform: scale(0.75);
+  }
+}
+
+@keyframes robotHover {
+  0% {
+    transform: translateY(2.5%);
+  }
+  100%{
+    transform: translateY(-2.5%);
+  }
+}
+
+
 
 /*------------------------------------*\
 #MEDIA
