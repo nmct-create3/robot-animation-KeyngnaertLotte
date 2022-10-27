@@ -178,3 +178,5 @@ btnSlow.onclick = () => tl.timeScale(1)
 
 
 // https://leho-howest.instructure.com/courses/16794/pages/svg-animeren-met-gsap?module_item_id=494346
+
+
